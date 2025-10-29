@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      /* Gradient background from deep green to peach */
+      background: linear-gradient(120deg, #882f67 0%, #186366 50%, #978922 100%);
+      min-height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+      /* Add subtle transition for background when resizing */
+      transition: background 0.4s ease-in-out;
+    }
+
+    .login-box {
+      max-width: 400px;
+      margin: auto;
+      margin-top: 10vh;
+      padding: 2rem;
+      background-color: #a4a19f;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-control:focus {
+      border-color: #173478;
+      box-shadow: none;
+    }
+
+    .btn-custom {
+      background-color: #193486;
+      color: white;
+    }
+
+    .btn-custom:hover {
+      background-color: #1a206f;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="login-box">
+
+    <h2 class="text-center mb-4">🌱 Welcome Back 🌱</h2>
+    <form method="POST">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" required />
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="••••••••" required />
+      </div>
+      <div class="d-grid">
+        <button type="submit" class="btn btn-custom">Login</button>
+      </div>
+      <p></p>
+    </form>
+    <div class="d-grid">
+      <a class="btn btn-custom" href="{% url 'social:begin' 'google-oauth2' %}">Login with google</a>
+    </div>   
+    
+    <p class="text-center mt-3">
+      <a href="#" class="text-success text-decoration-none">Forgot password?</a>
+    </p>
+
+
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

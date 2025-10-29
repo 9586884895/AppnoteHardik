@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Data Report</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      /* Gradient background from deep green to peach */
+      background: linear-gradient(120deg, #882f67 0%, #186366 50%, #978922 100%);
+      min-height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+      /* Add subtle transition for background when resizing */
+      transition: background 0.4s ease-in-out;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold text-center text-white mb-6">📋 User Data 📋</h1>
+    <div class="overflow-x-auto shadow-lg rounded-lg">
+      <table class="min-w-full bg-white border border-gray-200">
+        <thead class="bg-teal-600 text-white">
+          <tr>
+            <th class="py-3 px-6 text-left">ID</th>
+            <th class="py-3 px-6 text-left">Full Name</th>
+            <th class="py-3 px-6 text-left">Email</th>
+            <th class="py-3 px-6 text-left">Mobile Number</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+          {% for i in userdata %}
+          <tr class="hover:bg-green-50">
+            <td class="py-3 px-6">{{i.id}}</td>
+            <td class="py-3 px-6">{{i.fullname}}</td>
+            <td class="py-3 px-6">{{i.email}}</td>
+            <td class="py-3 px-6">{{i.mobile}}</td>
+          </tr>
+          {% endfor %}
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+
+</html>
